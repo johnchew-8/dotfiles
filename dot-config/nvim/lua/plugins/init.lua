@@ -47,12 +47,13 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     config= function()
       require("lint").linters_by_ft = {
-        javascript = { "eslint_d" },
-        typescript = { "eslint_d" },
-        javascriptreact = { "eslint_d" },
-        typescriptreact = { "eslint_d" },
-        python = { "ruff" },
-        sql = { "sqlfluff" },
+        ["*"] = { "typos" },
+        javascript = { "typos", "eslint_d" },
+        typescript = { "typos", "eslint_d" },
+        javascriptreact = { "typos", "eslint_d" },
+        typescriptreact = { "typos", "eslint_d" },
+        python = { "typos", "ruff" },
+        sql = { "typos", "sqlfluff" },
       }
 
       vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
