@@ -22,7 +22,7 @@ local servers = {
 vim.lsp.config("pyright", {
   settings = {
     python = {
-      analysis = { typeCheckingMode = "basic", autoSearchPaths = true },
+      analysis = { typeCheckingMode = "basic" },
     },
   },
 })
