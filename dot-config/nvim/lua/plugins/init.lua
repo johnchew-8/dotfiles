@@ -28,6 +28,23 @@ return {
   },
 
   {
+    'stevearc/oil.nvim',
+    lazy = false,
+    opts = {
+      columns = {
+        "icon",
+        "size",
+      },
+      keymaps = {
+        ["<C-h>"] = false,
+        ["<C-\\>"] = { "actions.select", opts = { vertical = true } },
+        ["<C-->"] = { "actions.select", opts = { horizontal = true } },
+      }
+    },
+    dependencies = { { "nvim-tree/nvim-web-devicons", opts = {} } },
+  },
+
+  {
     "kdheepak/lazygit.nvim",
     lazy=true,
     cmd = {
