@@ -24,7 +24,7 @@ stow:
 
 stow-config:
 	@echo "--- Stowing dot-config ---"
-	stow dot-config
+	stow -d dot-config -t ~/.config .
 
 stow-home:
 	@echo "--- Stowing home dotfiles ---"
@@ -32,7 +32,7 @@ stow-home:
 
 unstow-config:
 	@echo "--- Unstowing dot-config ---"
-	stow -D dot-config
+	stow -d dot-config -t ~/.config -D
 
 unstow-home:
 	@echo "--- Unstowing home dotfiles ---"
