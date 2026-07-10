@@ -5,17 +5,20 @@ require "nvchad.mappings"
 local map = vim.keymap.set
 local nomap = vim.keymap.del
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
 -- Cheatsheet
-nomap("n", "<leader>ch")
+vim.keymap.del("n", "<leader>ch")
 map("n", "<leader>cs", "<cmd>NvCheatsheet<CR>", { desc = "toggle nvcheatsheet" })
 
 ----------------------------------------------------------------------------
 -- Replace C-b with C-a for beginning of line in insert mode
 nomap("i", "<C-b>")
 map("i", "<C-a>", "<Esc>^i", { desc = "Go to beginning of line" })
+
+-- Remove toggle lines/relative lines. Always on relative line
+vim.keymap.del("n", "<leader>n")
+vim.keymap.del("n", "<leader>rn")
 
 -- Move current line up or down in normal mode (Alt + j/k)
 map("n", "<A-j>", ":m .+1<CR>==", { silent = true, desc = "Move line down" })
@@ -48,4 +51,26 @@ map({ "n", "t" }, "<C-`>", function()
   require("nvchad.term").toggle { pos = "sp", id = "horizontalToggleTerm" }
 end, { desc = "Toggle terminal horizontal" })
 
--- TODO: Bind smth - c to check w/ formatter. - w to write with formatter
+-- oil.nvim replaces NvimTree file operations. NvimTree is purely cosmetic
+vim.keymap.del("n", "<leader>e")
+map("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open oil.nvim explorer" })
+
+-- Dry-run formatter: conform.nvim
+map({ "n", "x" }, "<leader>fc", function()
+  require("conform").format({
+    dry_run = true,
+    lsp_fallback = true,
+  }, function(err, did_edit)
+    if err then
+      vim.notify("Format check error: " .. err, vim.log.levels.ERROR)
+    elseif did_edit then
+      vim.notify("? Formatting issues found", vim.log.levels.WARN)
+    else
+      vim.notify("û No formatting issues", vim.log.levels.INFO)
+    end
+  end)
+end, { desc = "format check file" })
+
+-- Lazy plugin manager and Mason package manager
+map("n", "<leader>L", "<cmd>Lazy<CR>", { desc = "Lazy" })
+map("n", "<leader>M", "<cmd>Mason<CR>", { desc = "Mason" })
