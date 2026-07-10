@@ -36,12 +36,6 @@ map("v", "<S-Right>", "l", { desc = "Extend selection right" })
 -- Universal Save File (Ctrl + S)
 map({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
 
--- Better Window navigation (Ctrl + Arrow Keys instead of Ctrl+W splits)
-map("n", "<C-Left>", "<C-w>h", { desc = "Switch to left window split" })
-map("n", "<C-Right>", "<C-w>l", { desc = "Switch to right window split" })
-map("n", "<C-Up>", "<C-w>k", { desc = "Switch to upper window split" })
-map("n", "<C-Down>", "<C-w>j", { desc = "Switch to lower window split" })
-
 -- Stay in Visual Mode when indenting/outdenting (with ] or [)
 map("v", "[", "<gv", { desc = "Un-indent text keeping selection" })
 map("v", "]", ">gv", { desc = "Indent text keeping selection" })
@@ -51,7 +45,7 @@ map("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "Git Open LazyGit Window" })
 
 -- Terminal toggle (defaults A-h, A-v, A-i still available)
 map({ "n", "t" }, "<C-`>", function()
-  require("nvchad.term").toggle { pos = "sp", id = "horizontalToggleTerm"}
+  require("nvchad.term").toggle { pos = "sp", id = "horizontalToggleTerm" }
 end, { desc = "Toggle terminal horizontal" })
 
 -- TODO: Bind smth - c to check w/ formatter. - w to write with formatter

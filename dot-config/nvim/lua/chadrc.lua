@@ -16,5 +16,10 @@ M.ui = {
   },
 }
 
+M.cheatsheet = {
+  theme = "grid",
+  excluded_groups = { "terminal (t)", "autopairs", "Nvim", "Opens", "Move (v)", "Move (i)", "Save", "Move" },
+}
+
 -- M.nvdash = { load_on_startup = true }
 return M

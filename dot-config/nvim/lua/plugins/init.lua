@@ -28,25 +28,24 @@ return {
   },
 
   {
-    'stevearc/oil.nvim',
+    "stevearc/oil.nvim",
     lazy = false,
     opts = {
       columns = {
         "icon",
-        "size",
       },
       keymaps = {
         ["<C-h>"] = false,
         ["<C-\\>"] = { "actions.select", opts = { vertical = true } },
         ["<C-->"] = { "actions.select", opts = { horizontal = true } },
-      }
+      },
     },
     dependencies = { { "nvim-tree/nvim-web-devicons", opts = {} } },
   },
 
   {
     "kdheepak/lazygit.nvim",
-    lazy=true,
+    lazy = true,
     cmd = {
       "LazyGit",
       "LazyGitConfig",
@@ -55,14 +54,14 @@ return {
       "LazyGitFilterCurrentFile",
     },
     dependencies = {
-        "nvim-lua/plenary.nvim",
+      "nvim-lua/plenary.nvim",
     },
   },
 
   {
     "mfussenegger/nvim-lint",
     event = { "BufReadPost", "BufNewFile" },
-    config= function()
+    config = function()
       require("lint").linters_by_ft = {
         ["*"] = { "typos" },
         javascript = { "typos", "eslint_d" },
@@ -110,9 +109,9 @@ return {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
         config = function()
-          require("telescope").load_extension("fzf")
+          require("telescope").load_extension "fzf"
         end,
       },
     },
-  }
+  },
 }
