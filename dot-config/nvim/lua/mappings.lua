@@ -64,9 +64,9 @@ map({ "n", "x" }, "<leader>fc", function()
     if err then
       vim.notify("Format check error: " .. err, vim.log.levels.ERROR)
     elseif did_edit then
-      vim.notify("? Formatting issues found", vim.log.levels.WARN)
+      vim.notify("¿  Formatting issues found", vim.log.levels.WARN)
     else
-      vim.notify("û No formatting issues", vim.log.levels.INFO)
+      vim.notify("¿ No formatting issues", vim.log.levels.INFO)
     end
   end)
 end, { desc = "format check file" })
