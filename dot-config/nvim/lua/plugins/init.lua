@@ -28,8 +28,24 @@ return {
   },
 
   {
+    "stevearc/oil.nvim",
+    lazy = false,
+    opts = {
+      columns = {
+        "icon",
+      },
+      keymaps = {
+        ["<C-h>"] = false,
+        ["<C-\\>"] = { "actions.select", opts = { vertical = true } },
+        ["<C-->"] = { "actions.select", opts = { horizontal = true } },
+      },
+    },
+    dependencies = { { "nvim-tree/nvim-web-devicons", opts = {} } },
+  },
+
+  {
     "kdheepak/lazygit.nvim",
-    lazy=true,
+    lazy = true,
     cmd = {
       "LazyGit",
       "LazyGitConfig",
@@ -38,14 +54,14 @@ return {
       "LazyGitFilterCurrentFile",
     },
     dependencies = {
-        "nvim-lua/plenary.nvim",
+      "nvim-lua/plenary.nvim",
     },
   },
 
   {
     "mfussenegger/nvim-lint",
     event = { "BufReadPost", "BufNewFile" },
-    config= function()
+    config = function()
       require("lint").linters_by_ft = {
         ["*"] = { "typos" },
         javascript = { "typos", "eslint_d" },
@@ -93,9 +109,22 @@ return {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
         config = function()
-          require("telescope").load_extension("fzf")
+          require("telescope").load_extension "fzf"
         end,
       },
     },
-  }
+  },
+
+  {
+    "MagicDuck/grug-far.nvim",
+    keys = {
+      { "<leader>F", "<cmd>GrugFar<CR>", desc = "Find and Replace (grug-far)" },
+    },
+    config = function()
+      require("grug-far").setup {
+        -- All defaults are fine. https://github.com/MagicDuck/grug-far.nvim/blob/main/doc/grug-far.txt
+      }
+    end,
+  },
+  --TODO: DAPs: https://www.lazyvim.org/extras/dap/core
 }
