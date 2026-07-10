@@ -114,4 +114,16 @@ return {
       },
     },
   },
+
+  {
+    "MagicDuck/grug-far.nvim",
+    keys = {
+      { "<leader>F", "<cmd>GrugFar<CR>", desc = "Find and Replace (grug-far)" },
+    },
+    config = function()
+      require("grug-far").setup {
+        -- All defaults are fine. https://github.com/MagicDuck/grug-far.nvim/blob/main/doc/grug-far.txt
+      }
+    end,
+  },
 }
