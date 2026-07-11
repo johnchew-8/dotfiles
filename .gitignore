@@ -6,22 +6,22 @@
 *.crt
 
 # Tmux
-dot-config/tmux/plugins/*
-!dot-config/tmux/plugins/tpm
+tmux/.config/tmux/plugins/*
+!tmux/.config/tmux/plugins/tpm
 
 # Fish
-dot-config/fish/config.local.fish
-dot-config/fish/fish_variables
-dot-config/fish/fish_history
-dot-config/fish/conf.d/*
-dot-config/fish/functions/*
-dot-config/fish/completions/*
+fish/.config/fish/config.local.fish
+fish/.config/fish/fish_variables
+fish/.config/fish/fish_history
+fish/.config/fish/conf.d/*
+fish/.config/fish/functions/*
+fish/.config/fish/completions/*
 
-!dot-config/fish/functions/eza.fish
-!dot-config/fish/functions/agent_load.fish
-!dot-config/fish/functions/rfnvim.fish
-!dot-config/fish/functions/cat.fish
+!fish/.config/fish/functions/eza.fish
+!fish/.config/fish/functions/agent_load.fish
+!fish/.config/fish/functions/rfnvim.fish
+!fish/.config/fish/functions/cat.fish
 
 # Zellij
-dot-config/zellij/plugins/*
-!dot-config/zellij/plugins/.gitkeep
+zellij/.config/zellij/plugins/*
+!zellij/.config/zellij/plugins/.gitkeep
