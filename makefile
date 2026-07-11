@@ -7,8 +7,11 @@ help:
 	@echo "  tuckr status         Show status"
 
 install:
-	tuckr add \*
+	tuckr add \* -e eza
+	tuckr add eza --only-files
 
 restow:
 	tuckr rm \*
-	tuckr add \*
+	tuckr add \* -e eza
+	tuckr add eza --only-files
+
