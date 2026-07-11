@@ -30,7 +30,7 @@ return {
   {
     "stevearc/oil.nvim",
     lazy = false,
-    opts = require "configs.oil",
+    config = require "configs.oil",
     dependencies = { { "nvim-tree/nvim-web-devicons", opts = {} } },
   },
 

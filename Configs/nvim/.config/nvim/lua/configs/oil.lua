@@ -37,9 +37,11 @@ local function new_git_status()
     end,
   })
 end
-local git_status = new_git_status()
 
--- Clear git status cache on refresh
+return function ()
+  local git_status = new_git_status()
+
+  -- Clear git status cache on refresh
 local refresh = require("oil.actions").refresh
 local orig_refresh = refresh.callback
 refresh.callback = function(...)
@@ -47,7 +49,7 @@ refresh.callback = function(...)
   orig_refresh(...)
 end
 
-local opts = {
+require("oil").setup({
   columns = { "icon" },
   keymaps = {
     ["<C-h>"] = false,
@@ -68,6 +70,5 @@ local opts = {
       end
     end,
   },
-}
-
-return opts
+})
+end
