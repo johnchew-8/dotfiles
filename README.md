@@ -60,7 +60,10 @@ make stow-home
 
 [Install fisher](https://github.com/jorgebucaran/fisher)
 Then install plugins from the tracked list:
-`fisher install`
+```fish
+fisher install
+fisher update
+```
 
 Install [fzf.fish](https://github.com/PatrickF1/fzf.fish), [nvm.fish](https://github.com/jorgebucaran/nvm.fish)
 
