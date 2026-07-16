@@ -2,7 +2,7 @@ general.import = ["catppuccin-mocha.toml"]
 
 [terminal.shell]
 program = "wsl.exe"
-args = ["-d", "Ubuntu"]
+args = ["-d", "Ubuntu", "--cd", "~"]
 
 [window]
 opacity = 0.90
