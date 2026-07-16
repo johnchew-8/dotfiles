@@ -30,16 +30,7 @@ return {
   {
     "stevearc/oil.nvim",
     lazy = false,
-    opts = {
-      columns = {
-        "icon",
-      },
-      keymaps = {
-        ["<C-h>"] = false,
-        ["<C-\\>"] = { "actions.select", opts = { vertical = true } },
-        ["<C-->"] = { "actions.select", opts = { horizontal = true } },
-      },
-    },
+    config = require "configs.oil",
     dependencies = { { "nvim-tree/nvim-web-devicons", opts = {} } },
   },
 

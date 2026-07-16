@@ -1,6 +1,6 @@
 # dotfiles
 
-dotfiles tracked using stow. Makes my terminal look kewl.
+dotfiles tracked using Tuckr. Makes my terminal look kewl.
 
 ## Prerequisites
 
@@ -21,38 +21,19 @@ Install via appropriate package manager, ideally get latest version:
 Clone the repo
 
 ```fish
-cd ~/dotfiles
+cd ~/.dotfiles
 make install
 ```
 
-make install deploys symlinks and initializes submodules in this repo. **It does not** install plugins — see below.
-
-Run `make install` (which stows) **before** launching the relevant tool on a fresh machine. Otherwise, the tool may auto-create a default config on first start.
+`make install` deploys all symlinks via Tuckr. It does not install plugins - see below.
 
 ## Adding a new dotfile
 
-**TODO**: Conventional directory structure and Tuckr migration.
+Layout: `Configs/<group>/.config/<app>/` for XDG apps, `Configs/<group>/` for home-directory files (`.bashrc`, `.profile`).
 
-~~Use following stow sequence to prevent top-level artifacts in $HOME
-
-**From `~/.config/`**
-
-```fish
-mv ~/.config/<app> ~/dotfiles/dot-config/<app>
-cd ~/dotfiles
-make stow-config
-```
-
-**From `$HOME`**:
-
-```fish
-# The dot- prefix is required — stow's --dotfiles strips it at link time
-mv ~/.somefile ~/dotfiles/dot-somefile
-cd ~/dotfiles
-make stow-home
-```
-
-> After running `make stow-config`, verify with `readlink -f ~/.config/<app>` — it should resolve to `~/dotfiles/dot-config/<app>`.~~
+1. Place file in the matching group using `mv`
+2. Run `make install` to symlink
+3. Commit
 
 ## Per-tool setup
 
@@ -60,7 +41,11 @@ make stow-home
 
 [Install fisher](https://github.com/jorgebucaran/fisher)
 Then install plugins from the tracked list:
-`fisher install`
+
+```fish
+fisher install
+fisher update
+```
 
 Install [fzf.fish](https://github.com/PatrickF1/fzf.fish), [nvm.fish](https://github.com/jorgebucaran/nvm.fish)
 
@@ -68,17 +53,16 @@ Install [fzf.fish](https://github.com/PatrickF1/fzf.fish), [nvm.fish](https://gi
 
 ```fish
 # Edit and add your own API keys / tokens - for agentic code
-$EDITOR ~/.config/fish/config.local.fisher
+$EDITOR ~/.config/fish/config.local.fish
 ```
 
 ### tmux (tpm plugins):
 
-Open tmux, press prefix + I. Installs tpm
+Open tmux, press `prefix + I` to install plugins via tpm. To resync:
 
 ```fish
-cd ~/dotfiles
-make update-submodules # refresh tpm
-make restow # re-link any new/changed files
+cd ~/.dotfiles
+make restow
 ```
 
 ### Zellij (zjstatus plugin)
@@ -86,6 +70,6 @@ make restow # re-link any new/changed files
 Download the plugin into the plugins dir (one-time):
 
 ```fish
-curl -fL -o ~/dotfiles/dot-config/zellij/plugins/zjstatus.wasm \
+curl -fL -o ~/.dotfiles/Configs/zellij/.config/zellij/plugins/zjstatus.wasm \
   https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm
 ```
