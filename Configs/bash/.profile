@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # Bash shell profile is legacy
 
 # ~/.profile: executed by the command interpreter for login shells.
