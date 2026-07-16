@@ -6,7 +6,7 @@ dotfiles tracked using stow. Makes my terminal look kewl.
 
 Install via appropriate package manager, ideally get latest version:
 
-- [`stow`](https://github.com/aspiers/stow)
+- [`Tuckr`](https://github.com/RaphGL/Tuckr)
 - [`tmux`](https://github.com/tmux/tmux)
 - [`fish` (3.6+)](https://github.com/fish-shell/fish-shell)
 - [`nvim`](https://github.com/neovim/neovim)
@@ -31,7 +31,9 @@ Run `make install` (which stows) **before** launching the relevant tool on a fre
 
 ## Adding a new dotfile
 
-Use following stow sequence to prevent top-level artifacts in $HOME
+**TODO**: Conventional directory structure and Tuckr migration.
+
+~~Use following stow sequence to prevent top-level artifacts in $HOME
 
 **From `~/.config/`**
 
@@ -50,7 +52,7 @@ cd ~/dotfiles
 make stow-home
 ```
 
-> After running `make stow-config`, verify with `readlink -f ~/.config/<app>` — it should resolve to `~/dotfiles/dot-config/<app>`.
+> After running `make stow-config`, verify with `readlink -f ~/.config/<app>` — it should resolve to `~/dotfiles/dot-config/<app>`.~~
 
 ## Per-tool setup
 

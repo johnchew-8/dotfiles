@@ -1,3 +1,2 @@
 --verbose
---dotfiles
 --target=$HOME
