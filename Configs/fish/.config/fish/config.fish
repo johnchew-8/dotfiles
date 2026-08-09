@@ -65,3 +65,5 @@ set -gx FZF_DEFAULT_OPTS "
 set -gx fzf_fd_opts --hidden --exclude .git --exclude node_modules --exclude target
 
 set -gx fzf_history_time_format "%d/%m %H:%M"
+
+set -gx PATH "/home/johnc/.pixi/bin" $PATH

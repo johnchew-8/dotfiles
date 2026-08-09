@@ -95,6 +95,26 @@ return {
 
   {
     "nvim-telescope/telescope.nvim",
+    opts = {
+      defaults = {
+        vimgrep_arguments = {
+          "rg",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
+          "--hidden",
+          "--glob=!**/.git/*",
+        },
+      },
+      pickers = {
+        find_files = {
+          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+        },
+      },
+    },
     dependencies = {
       {
         "nvim-telescope/telescope-fzf-native.nvim",
