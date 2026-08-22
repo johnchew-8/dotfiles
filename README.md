@@ -12,7 +12,7 @@ Install via appropriate package manager, ideally get latest version:
 - [`nvim`](https://github.com/neovim/neovim)
 - [`zellij`](https://github.com/zellij-org/zellij)
 - [`fzf`](https://github.com/junegunn/fzf)
-- [`bat`](github.com/sharkdp/bat)
+- [`bat`](https://github.com/sharkdp/bat)
 - [`eza`](https://github.com/eza-community/eza)
 - [`fd`](https://github.com/sharkdp/fd)
 
