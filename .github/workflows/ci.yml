@@ -21,7 +21,7 @@ jobs:
         run: cargo install tuckr --version 0.13.1
 
       - name: Validate Tuckr deployment
-        env: 
+        env:
           TUCKR_HOME: ${{ github.workspace }}/..
           TUCKR_TARGET: ${{ runner.temp }}/tuckr-target
         run: |
