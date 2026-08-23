@@ -50,12 +50,6 @@ if status is-interactive
   end
 end
 
-# pnpm
-set -gx PNPM_HOME "/home/johnc/.local/share/pnpm"
-if not string match -q -- "$PNPM_HOME/bin" $PATH
-  set -gx PATH "$PNPM_HOME/bin" $PATH
-end
-
 # Bind bat preview to the CTRL+T file finder in fzf
 set -gx FZF_DEFAULT_OPTS "
   --layout=reverse
@@ -69,4 +63,3 @@ set -gx fzf_fd_opts --hidden --exclude .git --exclude node_modules --exclude tar
 
 set -gx fzf_history_time_format "%d/%m %H:%M"
 
-set -gx PATH "/home/johnc/.pixi/bin" $PATH
