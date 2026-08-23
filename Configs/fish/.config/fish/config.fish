@@ -46,7 +46,7 @@ if status is-interactive
         set -l process_name $cmd_line[1]
 
         if test -n "$process_name"
-           command nohup zellij action rename-tab $process_name >/dev/null 2>&1 &
+          command nohup zellij action rename-tab $process_name >/dev/null 2>&1 &
         end
       end
     end
