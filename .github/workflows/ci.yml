@@ -1,8 +1,6 @@
 name: CI
 
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -12,22 +10,29 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  validate-stow:
-    name: Validate Stow layout
+  validate-tuckr:
+    name: Validate Tuckr layout and deployment
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Install Stow
-        run: sudo apt-get update && sudo apt-get install -y stow
+      - name: Install Tuckr
+        run: cargo install tuckr --version 0.13.1
 
-      - name: Dry-run stow
+      - name: Validate Tuckr deployment
+        env:
+          TUCKR_HOME: ${{ github.workspace }}/..
+          TUCKR_TARGET: ${{ runner.temp }}/tuckr-target
         run: |
           set -euo pipefail
-          HOME_TEST="$RUNNER_TEMP/home"
-          mkdir -p "$HOME_TEST"
-          stow -n -v --target="$HOME_TEST" --dotfiles .
+          mkdir -p "$TUCKR_TARGET"
+
+          tuckr -n add '*' -e eza
+          tuckr -n add eza --only-files
+
+          make install
+          tuckr status
 
   format-yaml-json:
     name: Check YAML, JSON formatting
@@ -91,7 +96,7 @@ jobs:
 
       - name: Check Lua formatting with StyLua
         run: |
-          stylua --check dot-config/nvim/ || echo "Lua formatting issues found"
+          stylua --check Configs/nvim/.config/nvim/
 
   shellcheck:
     name: Lint Shell Scripts

@@ -38,37 +38,37 @@ local function new_git_status()
   })
 end
 
-return function ()
+return function()
   local git_status = new_git_status()
 
   -- Clear git status cache on refresh
-local refresh = require("oil.actions").refresh
-local orig_refresh = refresh.callback
-refresh.callback = function(...)
-  git_status = new_git_status()
-  orig_refresh(...)
-end
+  local refresh = require("oil.actions").refresh
+  local orig_refresh = refresh.callback
+  refresh.callback = function(...)
+    git_status = new_git_status()
+    orig_refresh(...)
+  end
 
-require("oil").setup({
-  columns = { "icon" },
-  keymaps = {
-    ["<C-h>"] = false,
-    ["<C-\\>"] = { "actions.select", opts = { vertical = true } },
-    ["<C-->"] = { "actions.select", opts = { horizontal = true } },
-  },
-  view_options = {
-    is_hidden_file = function(name, bufnr)
-      local dir = require("oil").get_current_dir(bufnr)
-      local is_dotfile = vim.startswith(name, ".") and name ~= ".."
-      if not dir then
-        return is_dotfile
-      end
-      if is_dotfile then
-        return not git_status[dir].tracked[name]
-      else
-        return git_status[dir].ignored[name]
-      end
-    end,
-  },
-})
+  require("oil").setup {
+    columns = { "icon" },
+    keymaps = {
+      ["<C-h>"] = false,
+      ["<C-\\>"] = { "actions.select", opts = { vertical = true } },
+      ["<C-->"] = { "actions.select", opts = { horizontal = true } },
+    },
+    view_options = {
+      is_hidden_file = function(name, bufnr)
+        local dir = require("oil").get_current_dir(bufnr)
+        local is_dotfile = vim.startswith(name, ".") and name ~= ".."
+        if not dir then
+          return is_dotfile
+        end
+        if is_dotfile then
+          return not git_status[dir].tracked[name]
+        else
+          return git_status[dir].ignored[name]
+        end
+      end,
+    },
+  }
 end
