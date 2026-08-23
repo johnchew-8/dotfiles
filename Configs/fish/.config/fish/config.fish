@@ -5,7 +5,10 @@ end
 # Do not greet
 set -g fish_greeting
 
-set -gx PNPM_HOME "$HOME/.local/share/pnpm"
+if not set -q PNPM_HOME
+  set -gx PNPM_HOME "$HOME/.local/share/pnpm"
+end
+
 # User-local toolchain binaries.
 # fish_add_path is idempotent - ignores missing directories and avoids duplicates.
 fish_add_path --global --move \
@@ -74,4 +77,3 @@ set -gx FZF_DEFAULT_OPTS "
 set -gx fzf_fd_opts --hidden --exclude .git --exclude node_modules --exclude target
 
 set -gx fzf_history_time_format "%d/%m %H:%M"
-
