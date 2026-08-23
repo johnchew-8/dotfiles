@@ -15,6 +15,7 @@ Install via appropriate package manager, ideally get latest version:
 - [`bat`](https://github.com/sharkdp/bat)
 - [`eza`](https://github.com/eza-community/eza)
 - [`fd`](https://github.com/sharkdp/fd)
+- [`git-delta`](https://github.com/dandavison/delta)
 
 ## New device setup
 
@@ -36,6 +37,9 @@ Layout: `Configs/<group>/.config/<app>/` for XDG apps, `Configs/<group>/` for ho
 3. Commit
 
 ## Per-tool setup
+
+### Git delta
+Git is configured to use `delta` as its pager. Install with `cargo install git-delta` or with distribution's package manager and ensure `delta` is added to path.
 
 ### Fisher plugin manager:
 
@@ -65,11 +69,3 @@ cd ~/.dotfiles
 make restow
 ```
 
-### Zellij (zjstatus plugin)
-
-Download the plugin into the plugins dir (one-time):
-
-```fish
-curl -fL -o ~/.dotfiles/Configs/zellij/.config/zellij/plugins/zjstatus.wasm \
-  https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm
-```
