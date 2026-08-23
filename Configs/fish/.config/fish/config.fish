@@ -2,6 +2,24 @@ if test -f ~/.config/fish/config.local.fish
   source ~/.config/fish/config.local.fish
 end
 
+# Do not greet
+set -g fish_greeting
+
+if not set -q PNPM_HOME
+  set -gx PNPM_HOME "$HOME/.local/share/pnpm"
+end
+
+# User-local toolchain binaries.
+# fish_add_path is idempotent - ignores missing directories and avoids duplicates.
+fish_add_path --global --move \
+  "$HOME/.local/bin" \
+  "$HOME/.cargo/bin" \
+  "$HOME/.pixi/bin" \
+  "$HOME/.bun/bin" \
+  "$HOME/.local/share/fzf/bin" \
+  "$HOME/go/bin" \
+  "$PNPM_HOME/bin"
+
 # Preserve scrollback buffer on clear
 alias clear="clear -x"
 
@@ -47,12 +65,6 @@ if status is-interactive
   end
 end
 
-# pnpm
-set -gx PNPM_HOME "/home/johnc/.local/share/pnpm"
-if not string match -q -- "$PNPM_HOME/bin" $PATH
-  set -gx PATH "$PNPM_HOME/bin" $PATH
-end
-
 # Bind bat preview to the CTRL+T file finder in fzf
 set -gx FZF_DEFAULT_OPTS "
   --layout=reverse
@@ -65,5 +77,3 @@ set -gx FZF_DEFAULT_OPTS "
 set -gx fzf_fd_opts --hidden --exclude .git --exclude node_modules --exclude target
 
 set -gx fzf_history_time_format "%d/%m %H:%M"
-
-set -gx PATH "/home/johnc/.pixi/bin" $PATH
