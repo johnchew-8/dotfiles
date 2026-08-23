@@ -2,6 +2,9 @@ if test -f ~/.config/fish/config.local.fish
   source ~/.config/fish/config.local.fish
 end
 
+# Do not greet
+set -g fish_greeting
+
 # Preserve scrollback buffer on clear
 alias clear="clear -x"
 
