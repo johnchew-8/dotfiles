@@ -5,6 +5,18 @@ end
 # Do not greet
 set -g fish_greeting
 
+set -gx PNPM_HOME "$HOME/.local/share/pnpm"
+# User-local toolchain binaries.
+# fish_add_path is idempotent - ignores missing directories and avoids duplicates.
+fish_add_path --global --move \
+  "$HOME/.local/bin" \
+  "$HOME/.cargo/bin" \
+  "$HOME/.pixi/bin" \
+  "$HOME/.bun/bin" \
+  "$HOME/.local/share/fzf/bin" \
+  "$HOME/go/bin" \
+  "$PNPM_HOME/bin"
+
 # Preserve scrollback buffer on clear
 alias clear="clear -x"
 
@@ -31,7 +43,7 @@ if status is-interactive
         set -l process_name $cmd_line[1]
 
         if test -n "$process_name"
-          command nohup zellij action rename-tab $process_name >/dev/null 2>&1 &
+           command nohup zellij action rename-tab $process_name >/dev/null 2>&1 &
         end
       end
     end
