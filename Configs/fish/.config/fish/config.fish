@@ -36,7 +36,9 @@ if status is-interactive
   bind \e\x7f backward-kill-word
   
   #fzf bindings wo Alt
-  fzf_configure_bindings --directory=\ct --git_log=\cl --processes=\ck 
+  if functions -q fzf_configure_bindings
+    fzf_configure_bindings --directory=\ct --git_log=\cl --processes=\ck
+  end
   
   # Update zellij tab name with current process name or pwd
   if type -q zellij
