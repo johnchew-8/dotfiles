@@ -63,11 +63,6 @@ if status is-interactive
     end
   end
   
-  # Persist ssh agent in git repo for WSL session. 
-  agent_load
-  function _ssh_autoload_on_pwd --on-variable PWD
-    agent_load
-  end
 end
 
 # Bind bat preview to the CTRL+T file finder in fzf
