@@ -43,15 +43,12 @@ Git is configured to use `delta` as its pager. Install with `cargo install git-d
 
 ### Fisher plugin manager:
 
-[Install fisher](https://github.com/jorgebucaran/fisher)
-Then install plugins from the tracked list:
-
 ```fish
-fisher install
-fisher update
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+fisher update   # installs plugins from tracked fish_plugins
 ```
 
-Install [fzf.fish](https://github.com/PatrickF1/fzf.fish), [nvm.fish](https://github.com/jorgebucaran/nvm.fish)
+Plugins tracked in [`fish_plugins`](Configs/fish/.config/fish/fish_plugins): [fzf.fish](https://github.com/PatrickF1/fzf.fish), [nvm.fish](https://github.com/jorgebucaran/nvm.fish)
 
 ### Fish (secrets):
 
@@ -68,4 +65,6 @@ Open tmux, press `prefix + I` to install plugins via tpm. To resync:
 cd ~/.dotfiles
 make restow
 ```
+
+Note: tmux launches `fish` from `PATH` (no hardcoded shell path), so fish must be on `PATH` before starting tmux.
 
