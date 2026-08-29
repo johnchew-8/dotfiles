@@ -36,7 +36,11 @@ if status is-interactive
   bind \e\x7f backward-kill-word
   
   #fzf bindings wo Alt
-  fzf_configure_bindings --directory=\ct --git_log=\cl --processes=\ck 
+  # fzf_configure_bindings is provided by fzf.fish (Fisher) - guard so a
+  # fresh machine without plugins doesn't error on startup
+  if functions -q fzf_configure_bindings
+    fzf_configure_bindings --directory=\ct --git_log=\cl --processes=\ck
+  end
   
   # Update zellij tab name with current process name or pwd
   if type -q zellij
