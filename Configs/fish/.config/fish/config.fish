@@ -27,7 +27,9 @@ alias clear="clear -x"
 abbr -a gs "git status"
 
 if status is-interactive
-  bind \t forward-path-component
+  # Tab accepts the autosuggestion when one is shown; otherwise it falls back
+  # to fish's default completion pager. Token-wise accept stays on Alt+Right.
+  bind \t 'commandline -f accept-autosuggestion or complete'
 
   # Wipe the entire command line clean instantly using Ctrl + K
   bind \ck 'backward-kill-line; kill-line'
