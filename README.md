@@ -16,6 +16,7 @@ Install via appropriate package manager, ideally get latest version:
 - [`eza`](https://github.com/eza-community/eza)
 - [`fd`](https://github.com/sharkdp/fd)
 - [`git-delta`](https://github.com/dandavison/delta)
+- [`gh` (GitHub CLI)](https://github.com/cli/cli) — handles git authentication over HTTPS (`gh auth login`)
 
 ## New device setup
 
