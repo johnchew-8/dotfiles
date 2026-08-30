@@ -31,7 +31,7 @@ jobs:
           tuckr -n add '*' -e eza
           tuckr -n add eza --only-files
 
-          make install
+          make deploy
           tuckr status
 
   format-yaml-json:
