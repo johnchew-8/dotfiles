@@ -137,5 +137,35 @@ return {
       }
     end,
   },
+
+  {
+    "mason-org/mason.nvim",
+    lazy = false,
+    opts = function()
+      local opts = require "nvchad.configs.mason"
+      opts.ensure_installed = require "configs.mason-tools"
+      return opts
+    end,
+    config = function(_, opts)
+      require("mason").setup(opts)
+
+      local function ensure_installed()
+        local mr = require "mason-registry"
+        mr.refresh(function()
+          for _, tool in ipairs(opts.ensure_installed) do
+            local p = mr.get_package(tool)
+            if not p:is_installed() then
+              p:install()
+            end
+          end
+        end)
+      end
+
+      -- Run :MasonEnsure to install mason-tools (LSP, DAP, linters, etc)
+      vim.api.nvim_create_user_command("MasonEnsure", ensure_installed, {})
+      ensure_installed()
+    end,
+  },
+
   --TODO: DAPs: https://www.lazyvim.org/extras/dap/core
 }

@@ -17,6 +17,7 @@ Install via appropriate package manager, ideally get latest version:
 - [`fd`](https://github.com/sharkdp/fd)
 - [`git-delta`](https://github.com/dandavison/delta)
 - [`gh`](https://github.com/cli/cli)
+- [`lazygit`](https://github.com/jesseduffield/lazygit)
 
 ## New device setup
 
