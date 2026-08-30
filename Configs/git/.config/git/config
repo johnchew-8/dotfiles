@@ -1,20 +1,29 @@
 [user]
 	name = JohnC
 	email = 108507081+johnchew-8@users.noreply.github.com
+
+# Work profile would override. Missing file silently ignored on personal machine.
+[incldude]
+  path = ~/.config/git/config-work
+
 [core]
 	autocrlf = input
 	pager = delta
 
 [includeIf "gitdir:/mnt/**"]
-	path = ~/.config/git/config-windows
+  path = ~/.config/git/config-windows
+
 [init]
 	defaultBranch = main
+
 [interactive]
 	diffFilter = delta --color-only
+
 [delta]
   side-by-side = true
   line-numbers = true
 	navigate = true
 	dark = true
+
 [merge]
 	conflictStyle = zdiff3

@@ -40,6 +40,7 @@ Layout: `Configs/<group>/.config/<app>/` for XDG apps, `Configs/<group>/` for ho
 ## Per-tool setup
 
 ### Git delta
+
 Git is configured to use `delta` as its pager. Install with `cargo install git-delta` or with distribution's package manager and ensure `delta` is added to path.
 
 ### Fisher plugin manager:
@@ -68,4 +69,3 @@ make restow
 ```
 
 Note: tmux launches `fish` from `PATH` (no hardcoded shell path), so fish must be on `PATH` before starting tmux.
-

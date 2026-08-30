@@ -1,5 +1,6 @@
 session_name "local"
 attach_to_session true
+show_startup_tips false
 
 copy_on_select true
 copy_clipboard "system"
