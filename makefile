@@ -20,11 +20,9 @@ restow:
 	tuckr add eza --only-files
 
 deploy-work:
-	tuckr -p work add \* -e eza
-	tuckr -p work add eza --only-files
+	tuckr -p work add \*
 
 restow-work:
 	tuckr -p work rm \*
-	tuckr -p work add \* -e eza
-	tuckr -p work add eza --only-files
+	tuckr -p work add \*
 
