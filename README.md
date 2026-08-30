@@ -33,7 +33,7 @@ make deploy
 
 Tuckr [profiles](https://raphgl.github.io/Tuckr/fundamentals/profiles.html) keep private dotfiles repo (`dotfiles_work`) alongside this one on the work machine. This repo is the **default** profile; the work profile lives at `~/.dotfiles_work` and deploys with the `work` flag.
 
-On the work machine, both profiles must be deployed together: `make deploy` (default) **and** `make deploy-work` (work).
+On the work machine, both profiles must be deployed together: `make deploy` + `make deploy-work`.
 
 ```fish
 tuckr ls profiles         # lists: work (when ~/.dotfiles_work exists)
