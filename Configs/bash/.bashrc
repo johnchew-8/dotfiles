@@ -3,7 +3,13 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# Optional toolchain setup must also run for Bash login shells.
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# Interactive-only toolchain setup
 if [ -f "$HOME/.cargo/env" ]; then
     . "$HOME/.cargo/env"
 fi
@@ -21,7 +27,6 @@ case ":$PATH:" in
     *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 
-
 export PYENV_ROOT="$HOME/.config/pyenv"
 if [ -d "$PYENV_ROOT/bin" ]; then
     export PATH="$PYENV_ROOT/bin:$PATH"
@@ -35,11 +40,8 @@ if [ -f "$HOME/.local/bin/env" ]; then
     . "$HOME/.local/bin/env"
 fi
 
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+# pixi
+export PATH="$HOME/.pixi/bin:$PATH"
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
