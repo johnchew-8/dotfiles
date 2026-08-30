@@ -29,6 +29,35 @@ make install
 
 `make install` deploys all symlinks via Tuckr. It does not install plugins - see below.
 
+## Profiles (personal vs work)
+
+Tuckr [profiles](https://raphgl.github.io/Tuckr/fundamentals/profiles.html) keep a second, private dotfiles repo (`dotfiles_work`) alongside this one on the work machine. This repo is the **default** profile; the work profile lives at `~/.dotfiles_work` and deploys with the `work` flag.
+
+```fish
+tuckr ls profiles         # lists: work (when ~/.dotfiles_work exists)
+make install              # deploy default profile (this repo)
+make install-work         # deploy work profile (~/.dotfiles_work)
+make restow-work          # redeploy work profile
+tuckr -p work status      # inspect work profile symlinks
+```
+
+Rules that keep both profiles conflict-free:
+
+- The work repo may only contain paths this repo does not own (e.g. it owns `~/.config/git/config-work`, never `~/.config/git/config`). Two profiles never merge file contents.
+- Shared behavior stays single-sourced here on `main`; the work repo holds work-only deltas.
+- Per-machine tweaks belong in `~/.config/fish/config.local.fish` (untracked, sourced by `config.fish`).
+
+### Work git identity
+
+This repo's git config includes the optional file `~/.config/git/config-work`:
+
+```git
+[include]
+	path = ~/.config/git/config-work
+```
+
+Git silently skips missing includes, so the same config works on both machines: personal machines have no `config-work`; the work profile deploys it with the work `[user]` identity, overriding the one above.
+
 ## Adding a new dotfile
 
 Layout: `Configs/<group>/.config/<app>/` for XDG apps, `Configs/<group>/` for home-directory files (`.bashrc`, `.profile`).
