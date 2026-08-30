@@ -24,10 +24,10 @@ Clone the repo
 
 ```fish
 cd ~/.dotfiles
-make install
+make deploy
 ```
 
-`make install` deploys all symlinks via Tuckr. It does not install plugins - see below.
+`make deploy` deploys all symlinks via Tuckr. It does not install plugins - see below.
 
 ## Profiles (personal vs work)
 
@@ -35,8 +35,8 @@ Tuckr [profiles](https://raphgl.github.io/Tuckr/fundamentals/profiles.html) keep
 
 ```fish
 tuckr ls profiles         # lists: work (when ~/.dotfiles_work exists)
-make install              # deploy default profile (this repo)
-make install-work         # deploy work profile (~/.dotfiles_work)
+make deploy               # deploy default profile (this repo)
+make deploy-work          # deploy work profile (~/.dotfiles_work)
 make restow-work          # redeploy work profile
 tuckr -p work status      # inspect work profile symlinks
 ```
@@ -63,7 +63,7 @@ Git silently skips missing includes, so the same config works on both machines: 
 Layout: `Configs/<group>/.config/<app>/` for XDG apps, `Configs/<group>/` for home-directory files (`.bashrc`, `.profile`).
 
 1. Place file in the matching group using `mv`
-2. Run `make install` to symlink
+2. Run `make deploy` to symlink
 3. Commit
 
 ## Per-tool setup
