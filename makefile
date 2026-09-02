@@ -1,4 +1,4 @@
-.PHONY: help cli-tools deploy restow deploy-work restow-work
+.PHONY: help cli-tools bootstrap deploy restow deploy-work restow-work
 
 help:
 	@echo "--- tuckr dotfiles ---"
@@ -10,6 +10,7 @@ help:
 	@echo "  make deploy-work     Deploy work profile (tuckr -p work)"
 	@echo "  make restow-work     Redeploy work profile"
 	@echo "  make cli-tools       Install cli tool packages with Homebrew bundle"
+	@echo "  make bootstrap       Install cli tools then deploy (fresh machine)"
 
 cli-tools:
 	@for p in /opt/homebrew /usr/local /home/linuxbrew/.linuxbrew; do \
@@ -19,6 +20,8 @@ cli-tools:
 	  fi; \
 	done; \
 	echo "brew not found — install from https://brew.sh first" >&2; exit 1
+
+bootstrap: cli-tools deploy
 
 deploy:
 	tuckr add \* -e eza

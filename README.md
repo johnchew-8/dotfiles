@@ -22,11 +22,10 @@ Clone the repo
 
 ```fish
 cd ~/.dotfiles
-make cli-tools
-make deploy
+make bootstrap
 ```
 
-`make cli-tools` installs CLI prerequisites via Homebrew. `make deploy` deploys all symlinks via Tuckr and does not install plugins - see below.
+`make bootstrap` installs the CLI prerequisites via Homebrew (`make cli-tools`) and then deploys all symlinks (`make deploy`). Both steps are idempotent - safe to re-run. Plugins are not installed - see below.
 
 ## Profiles (personal vs work)
 
