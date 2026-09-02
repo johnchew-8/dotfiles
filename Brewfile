@@ -14,10 +14,8 @@ brew "ripgrep"
 brew "zoxide"
 brew "lazygit"
 brew "tlrc"
+brew "jq"
 
 # Extras
 brew "tree-sitter"
 brew "cargo-cache"
-brew "uv"
-brew "pnpm"
-brew "npm"

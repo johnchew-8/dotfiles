@@ -14,7 +14,8 @@ help:
 cli-tools:
 	@for p in /opt/homebrew /usr/local /home/linuxbrew/.linuxbrew; do \
 	  if [ -x "$$p/bin/brew" ]; then \
-	    "$$p/bin/brew" bundle install --no-lock && exit 0; \
+	    "$$p/bin/brew" bundle install --file Brewfile; \
+	    exit $$?; \
 	  fi; \
 	done; \
 	echo "brew not found — install from https://brew.sh first" >&2; exit 1
