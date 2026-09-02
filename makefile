@@ -9,7 +9,7 @@ help:
 	@echo "  make restow          Redeploy default profile"
 	@echo "  make deploy-work     Deploy work profile (tuckr -p work)"
 	@echo "  make restow-work     Redeploy work profile"
-	@echo "	 make cli-tools		  Install cli tool packages with Homebrew bundle"
+	@echo "  make cli-tools       Install cli tool packages with Homebrew bundle"
 
 cli-tools:
 	@for p in /opt/homebrew /usr/local /home/linuxbrew/.linuxbrew; do \
