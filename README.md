@@ -4,7 +4,7 @@ dotfiles tracked using Tuckr. Makes my terminal look kewl.
 
 ## Prerequisites
 
-CLI prerequisites are managed with [Homebrew](https://brew.sh) via the checked-in [`Brewfile`](Brewfile) - source of truth for the tool list:
+CLI prerequisites are managed with [Homebrew](https://brew.sh) via the committed [`Brewfile`](Brewfile) - source of truth for the tool list:
 
 ```fish
 make cli-tools
@@ -12,7 +12,6 @@ make cli-tools
 
 `make cli-tools` locates `brew` across the standard prefixes (`/opt/homebrew`, `/usr/local`, `/home/linuxbrew/.linuxbrew`) and runs `brew bundle install`. It is idempotent - safe to re-run on existing machines, anything already installed is skipped.
 
-Tools installed: tuckr, tmux, fish, neovim, zellij, fzf, bat, eza, fd, delta (git-delta), gh, ripgrep, zoxide, lazygit, tlrc, plus tree-sitter and cargo-cache.
 
 > Linux: Homebrew's installer requires a `sudo` password with `build-essential`, `curl` and `git` preinstalled. Not supported on Alpine/musl.
 
