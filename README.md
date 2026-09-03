@@ -4,20 +4,16 @@ dotfiles tracked using Tuckr. Makes my terminal look kewl.
 
 ## Prerequisites
 
-Install via appropriate package manager, ideally get latest version:
+CLI prerequisites are managed with [Homebrew](https://brew.sh) via the committed [`Brewfile`](Brewfile) - source of truth for the tool list:
 
-- [`Tuckr`](https://github.com/RaphGL/Tuckr)
-- [`tmux`](https://github.com/tmux/tmux)
-- [`fish` (3.6+)](https://github.com/fish-shell/fish-shell)
-- [`nvim`](https://github.com/neovim/neovim)
-- [`zellij`](https://github.com/zellij-org/zellij)
-- [`fzf`](https://github.com/junegunn/fzf)
-- [`bat`](https://github.com/sharkdp/bat)
-- [`eza`](https://github.com/eza-community/eza)
-- [`fd`](https://github.com/sharkdp/fd)
-- [`git-delta`](https://github.com/dandavison/delta)
-- [`gh`](https://github.com/cli/cli)
-- [`lazygit`](https://github.com/jesseduffield/lazygit)
+```fish
+make cli-tools
+```
+
+`make cli-tools` locates `brew` across the standard prefixes (`/opt/homebrew`, `/usr/local`, `/home/linuxbrew/.linuxbrew`) and runs `brew bundle install`. It is idempotent - safe to re-run on existing machines, anything already installed is skipped.
+
+
+> Linux: Homebrew's installer requires a `sudo` password with `build-essential`, `curl` and `git` preinstalled. Not supported on Alpine/musl.
 
 ## New device setup
 
@@ -25,10 +21,10 @@ Clone the repo
 
 ```fish
 cd ~/.dotfiles
-make deploy
+make bootstrap
 ```
 
-`make deploy` deploys all symlinks via Tuckr. It does not install plugins - see below.
+`make bootstrap` installs the CLI prerequisites via Homebrew (`make cli-tools`) and then deploys all symlinks (`make deploy`). Both steps are idempotent - safe to re-run. Plugins are not installed - see below.
 
 ## Profiles (personal vs work)
 
@@ -62,7 +58,7 @@ Layout: `Configs/<group>/.config/<app>/` for XDG apps, `Configs/<group>/` for ho
 
 ### Git delta
 
-Git is configured to use `delta` as its pager. Install with `cargo install git-delta` or with distribution's package manager and ensure `delta` is added to path.
+Git is configured to use `delta` as its pager. It is installed via the Brewfile (`make cli-tools`); the brew binary wins on `PATH`.
 
 ### Fisher plugin manager:
 

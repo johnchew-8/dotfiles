@@ -14,11 +14,12 @@ if [ -f "$HOME/.cargo/env" ]; then
     . "$HOME/.cargo/env"
 fi
 
-if command -v brew >/dev/null 2>&1; then
-    eval "$(brew shellenv)"
-elif [ -x "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
+for p in /opt/homebrew /usr/local /home/linuxbrew/.linuxbrew; do
+    if [ -x "$p/bin/brew" ]; then
+        eval "$("$p/bin/brew shellenv")"
+        break
+    fi
+done
 
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
