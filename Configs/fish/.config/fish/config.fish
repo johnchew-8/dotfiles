@@ -14,6 +14,7 @@ end
 fish_add_path --global --move \
   "$HOME/.local/bin" \
   "$HOME/.cargo/bin" \
+  "$HOME/.docker/bin" \
   "$HOME/.pixi/bin" \
   "$HOME/.bun/bin" \
   "$HOME/.local/share/fzf/bin" \
