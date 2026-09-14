@@ -1,4 +1,8 @@
 # shellcheck shell=bash
+# The following lines were added by Docker Desktop to add commands to your PATH.
+export PATH="$PATH:$HOME/.docker/bin"
+# End of Docker Desktop section.
+
 # Bash shell profile is legacy
 
 # ~/.profile: executed by the command interpreter for login shells.
