@@ -132,20 +132,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Gitleaks
+      - name: Gitleaks scan
         uses: gitleaks/gitleaks-action@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Check for hardcoded secrets
-        run: |
-          echo "Scanning for potential secrets..."
-
-          if grep -rn -E --include="*.sh" --include="*.zsh" --include=".zshrc" --include="*.fish" \
-            -e "(password|secret|api_key|token)[\\s]*=[\\s]*['\"][^'\"]+['\"]" \
-            -e "set[[:space:]]+(-{1,2}[[:alpha:]]+[[:space:]]+)*[[:alnum:]_]*(password|secret|api_key|token|PASSWORD|SECRET|API_KEY|TOKEN)[[:space:]]+[^[:space:]$].*" .; then
-            echo "❌ ::error:: Hardcoded secrets detected. Review matches and remove."
-            
-            exit 1
-          fi
-          echo "No hardcoded secrets found"
