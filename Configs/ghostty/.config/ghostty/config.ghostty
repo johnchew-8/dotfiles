@@ -5,7 +5,7 @@
 # --- Theme (follows system light/dark) ---
 theme = light:TokyoNight Day,dark:TokyoNight Night
 
-# --- Font --- (font-size left at default 13; ligatures kept)
+# --- Font & ligatures ---
 font-family = CaskaydiaCove Nerd Font Mono
 font-feature = -calt
 
