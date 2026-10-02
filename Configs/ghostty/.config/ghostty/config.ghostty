@@ -1,0 +1,38 @@
+# Ghostty config — shared across macOS + Linux
+# Platform-specific keys (macos-*, gtk-*) are ignored on the other OS.
+# Validate: ghostty +validate-config
+
+# --- Theme (follows system light/dark) ---
+theme = light:TokyoNight Day,dark:TokyoNight Night
+
+# --- Font & ligatures ---
+font-family = CaskaydiaCove Nerd Font Mono
+font-feature = -calt
+
+# --- Window ---
+background-opacity = 0.85
+background-blur = true
+window-padding-x = 6
+window-padding-y = 6
+window-padding-balance = true
+
+# --- Cursor ---
+cursor-style-blink = false
+
+# --- Selection / scrollback ---
+copy-on-select = clipboard
+# In bytes (~50 MB), not lines
+scrollback-limit = 50000000
+
+# --- Shell integration ---
+shell-integration = detect
+shell-integration-features = ssh-terminfo,ssh-env
+
+# --- Notify when long commands finish in an unfocused surface ---
+notify-on-command-finish = unfocused
+notify-on-command-finish-after = 10s
+notify-on-command-finish-action = notify
+
+# --- macOS ---
+macos-option-as-alt = left
+auto-update = check

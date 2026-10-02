@@ -23,5 +23,9 @@ brew "cargo-cache"
 brew "go"
 brew "rust"
 
-# Fonts
+# Casks
 cask "font-caskaydia-cove-nerd-font"
+
+# Ghostty cask is mac only.
+# Install Ghostty via distro package on Linux
+cask "ghostty" if OS.mac?
