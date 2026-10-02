@@ -49,9 +49,15 @@ if status is-interactive
   # Alt + Backspace: deletes word-by-word
   bind \e\x7f backward-kill-word
   
-  #fzf bindings wo Alt
+  # fzf.fish bindings (https://github.com/PatrickF1/fzf.fish)
+  #   directory:  ctrl-t      (override, default ctrl-alt-f)
+  #   git log:    ctrl-l      (override, default ctrl-alt-l)
+  #   git status: ctrl-alt-s  (default)
+  #   history:    ctrl-r      (default)
+  #   processes:  ctrl-alt-p  (default)
+  #   variables:  ctrl-v      (default)
   if functions -q fzf_configure_bindings
-    fzf_configure_bindings --directory=\ct --git_log=\cl --processes=\ck
+    fzf_configure_bindings --directory=\ct --git_log=\cl --processes=\e\cp
   end
   
   # Update zellij tab name with current process name or pwd
