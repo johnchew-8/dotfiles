@@ -49,13 +49,13 @@ if status is-interactive
   # Alt + Backspace: deletes word-by-word
   bind \e\x7f backward-kill-word
   
-  # fzf.fish bindings (https://github.com/PatrickF1/fzf.fish)
+  # fzf.fish bindings 
   #   directory:  ctrl-t      (override, default ctrl-alt-f)
   #   git log:    ctrl-l      (override, default ctrl-alt-l)
-  #   git status: ctrl-alt-s  (default)
-  #   history:    ctrl-r      (default)
-  #   processes:  ctrl-alt-p  (default)
-  #   variables:  ctrl-v      (default)
+  #   git status: ctrl-alt-s  
+  #   history:    ctrl-r      
+  #   processes:  ctrl-alt-p  
+  #   variables:  ctrl-v      
   if functions -q fzf_configure_bindings
     fzf_configure_bindings --directory=\ct --git_log=\cl --processes=\e\cp
   end
