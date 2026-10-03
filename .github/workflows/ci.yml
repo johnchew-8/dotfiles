@@ -28,8 +28,8 @@ jobs:
           set -euo pipefail
           mkdir -p "$TUCKR_TARGET"
 
-          tuckr -n add '*' -e eza
-          tuckr -n add eza --only-files
+          tuckr -n add '*' -e eza,brew
+          tuckr -n add eza brew --only-files
 
           make deploy
           tuckr status
