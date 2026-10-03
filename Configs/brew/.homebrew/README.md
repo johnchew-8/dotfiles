@@ -2,11 +2,11 @@
 
 Deployed by Tuckr to `~/.homebrew/`. Applies to every `brew` invocation on this machine - personal and work.
 
-| File | Deployed to | Purpose |
-|---|---|---|
-| `brew.env` | `~/.homebrew/brew.env` | Homebrew settings, read by `brew` from any shell or launchd. Enables `HOMEBREW_VERIFY_ATTESTATIONS` (bottle provenance check via `gh`). |
-| `.local/bin/brew-weekly` | `~/.local/bin/brew-weekly` | Runs `brew update`, `brew upgrade --formula`, then `brew vulns --fix-available`. |
-| `launchd/brew-weekly.plist.in` (repo root) | `~/Library/LaunchAgents/local.dotfiles.brew-weekly.plist` | Schedule: Monday 10:00. Copied (not symlinked) by `make schedule`. |
+| File                                       | Deployed to                                               | Purpose                                                                                                                                 |
+| ------------------------------------------ | --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `brew.env`                                 | `~/.homebrew/brew.env`                                    | Homebrew settings, read by `brew` from any shell or launchd. Enables `HOMEBREW_VERIFY_ATTESTATIONS` (bottle provenance check via `gh`). |
+| `.local/bin/brew-weekly`                   | `~/.local/bin/brew-weekly`                                | Runs `brew update`, `brew upgrade --formula`, then `brew vulns --fix-available`.                                                        |
+| `launchd/brew-weekly.plist.in` (repo root) | `~/Library/LaunchAgents/local.dotfiles.brew-weekly.plist` | Schedule: Monday 10:00. Copied (not symlinked) by `make schedule`.                                                                      |
 
 `~/.homebrew/` also holds `trust.json` from `brew trust`. That file is machine state and is not tracked.
 

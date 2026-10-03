@@ -1,6 +1,7 @@
 # dotfiles
 
 dotfiles tracked using Tuckr.
+
 ## Prerequisites
 
 CLI prerequisites are managed with [Homebrew](https://brew.sh) - the committed Brewfiles are the source of truth for the tool list:
