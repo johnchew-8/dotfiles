@@ -1,4 +1,4 @@
-# CLI pre-requisites - `make cli-tools`
+# Cross-platform CLI tools (personal scope)
 brew "tuckr"
 brew "tmux"
 brew "fish"
@@ -22,10 +22,10 @@ brew "tree-sitter"
 brew "cargo-cache"
 brew "go"
 brew "rust"
+brew "uv"
+brew "pnpm"
+brew "pixi"
+brew "ffmpeg"
 
 # Casks
 cask "font-caskaydia-cove-nerd-font"
-
-# Ghostty cask is mac only.
-# Install Ghostty via distro package on Linux
-cask "ghostty" if OS.mac?

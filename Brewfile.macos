@@ -1,0 +1,9 @@
+# macOS-only casks (personal scope)
+# On Linux, install these apps via the distro package manager
+cask "ghostty"
+cask "obsidian"
+cask "gimp"
+cask "claude-code"
+cask "firefox"
+cask "localsend"
+cask "aerial"
