@@ -27,5 +27,8 @@ Configs/fish/.config/fish/completions/*
 Configs/zellij/.config/zellij/plugins/*
 !Configs/zellij/.config/zellij/plugins/.gitkeep
 
+# Homebrew machine state
+Configs/brew/.homebrew/trust.json*
+
 # macOS
 .DS_Store
