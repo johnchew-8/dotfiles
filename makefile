@@ -1,4 +1,4 @@
-.PHONY: help deps bootstrap deploy restow deploy-work restow-work bootstrap-work schedule unschedule
+.PHONY: help deps bootstrap deploy restow deploy-work restow-work bootstrap-work
 
 # The work profile owns its own deps/deploy/restow. This repo only knows where it lives.
 WORK_DIR := $(HOME)/.dotfiles_work
@@ -18,8 +18,6 @@ help:
 	@echo "  make deploy-work     Deploy work profile (~/.dotfiles_work)"
 	@echo "  make restow-work     Redeploy work profile"
 	@echo "  make bootstrap-work  bootstrap, then work profile bootstrap"
-	@echo "  make schedule        macOS: weekly brew formula upgrade via launchd"
-	@echo "  make unschedule      macOS: remove the weekly launchd job"
 
 deps:
 	@for p in /opt/homebrew /usr/local /home/linuxbrew/.linuxbrew; do \
@@ -53,15 +51,3 @@ restow-work:
 
 bootstrap-work: bootstrap
 	$(MAKE) -C $(WORK_DIR) bootstrap
-
-# Render and copy (not tuckr), launchd does not reliably load symlinked plists
-schedule:
-	@[ "$$(uname -s)" = Darwin ] || { echo "make schedule: launchd is macOS only" >&2; exit 1; }
-	@mkdir -p $(HOME)/Library/LaunchAgents $(HOME)/Library/Logs
-	sed "s|@HOME@|$(HOME)|g" launchd/brew-weekly.plist.in > $(LAUNCHD_PLIST)
-	-@launchctl bootout gui/$$(id -u) $(LAUNCHD_PLIST) 2>/dev/null
-	launchctl bootstrap gui/$$(id -u) $(LAUNCHD_PLIST)
-
-unschedule:
-	-launchctl bootout gui/$$(id -u) $(LAUNCHD_PLIST)
-	rm -f $(LAUNCHD_PLIST)
