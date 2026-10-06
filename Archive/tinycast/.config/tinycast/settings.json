@@ -67,9 +67,7 @@
   },
   "fileSearch": {
     "enabled": true,
-    "scopes": [
-      "~"
-    ],
+    "scopes": ["~"],
     "ignorePatterns": []
   },
   "notes": {
@@ -213,10 +211,7 @@
     "enabled": false,
     "retentionDays": 90,
     "defaultAction": "paste",
-    "disabledApps": [
-      "com.apple.keychainaccess",
-      "com.apple.Passwords"
-    ]
+    "disabledApps": ["com.apple.keychainaccess", "com.apple.Passwords"]
   },
   "emoji": {
     "skinTone": "none",
