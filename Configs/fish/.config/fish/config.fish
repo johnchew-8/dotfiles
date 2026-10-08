@@ -34,9 +34,6 @@ for brew_prefix in /home/linuxbrew/.linuxbrew /opt/homebrew /usr/local
     end
 end
 
-# Preserve scrollback buffer on clear
-alias clear="clear -x"
-
 if status is-interactive
   # Tab accepts the autosuggestion when available
   # Otherwise falls back to fish's default completion pager. Token-wise accept stays on Alt+Right.
