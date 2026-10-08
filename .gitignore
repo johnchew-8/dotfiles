@@ -17,6 +17,7 @@ Configs/fish/.config/fish/conf.d/*
 Configs/fish/.config/fish/functions/*
 Configs/fish/.config/fish/completions/*
 
+!Configs/fish/.config/fish/functions/clear.fish
 !Configs/fish/.config/fish/functions/eza.fish
 !Configs/fish/.config/fish/functions/agent_load.fish
 !Configs/fish/.config/fish/functions/rfnvim.fish
