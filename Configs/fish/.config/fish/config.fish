@@ -21,15 +21,11 @@ fish_add_path --global --move \
   "$HOME/go/bin" \
   "$PNPM_HOME/bin"
 
-# Homebrew shell environment sourced after the
-# local toolchain paths so brew-managed binaries win during consolidation.
-# Idempotent, missing prefixes ignored
+# Homebrew shell environment sourced before local toolchain paths 
+# so brew-managed binaries win during consolidation.
 for brew_prefix in /home/linuxbrew/.linuxbrew /opt/homebrew /usr/local
     if test -x $brew_prefix/bin/brew
-        fish_add_path --global --move $brew_prefix/bin $brew_prefix/sbin
-        set -gx HOMEBREW_PREFIX $brew_prefix
-        set -gx HOMEBREW_CELLAR $brew_prefix/Cellar
-        set -gx HOMEBREW_REPOSITORY $brew_prefix/Homebrew
+        $brew_prefix/bin/brew shellenv fish | source
         break
     end
 end
