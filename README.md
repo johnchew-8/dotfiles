@@ -51,17 +51,6 @@ Rules that keep both profiles conflict-free:
 - Shared behavior stays single-sourced here on `main`; the work repo holds work-only deltas.
 - Per-machine tweaks belong in `~/.config/fish/config.local.fish` (untracked, sourced by `config.fish`).
 
-## Weekly Homebrew upgrade (macOS)
-
-**Recommended** for vulnerability protection. Seperate step - not part of `make bootstrap`:
-
-```fish
-make schedule     # install the launchd job
-make unschedule   # remove it
-```
-
-Once scheduled, brew upgrades **every formula on the machine** (personal + work) weekly. Casks are not upgraded. Details: [`Configs/brew/.homebrew/README.md`](Configs/brew/.homebrew/README.md).
-
 ## Adding a new dotfile
 
 Layout: `Configs/<group>/.config/<app>/` for XDG apps, `Configs/<group>/` for home-directory files (`.bashrc`, `.profile`).

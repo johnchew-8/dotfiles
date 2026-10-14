@@ -3,9 +3,6 @@
 # The work profile owns its own deps/deploy/restow. This repo only knows where it lives.
 WORK_DIR := $(HOME)/.dotfiles_work
 
-LAUNCHD_LABEL := local.dotfiles.brew-weekly
-LAUNCHD_PLIST := $(HOME)/Library/LaunchAgents/$(LAUNCHD_LABEL).plist
-
 help:
 	@echo "--- tuckr dotfiles ---"
 	@echo "  tuckr add \*         Deploy all groups"
