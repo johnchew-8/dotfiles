@@ -6,6 +6,7 @@ local options = {
     typescript = { "prettier" },
     javascriptreact = { "prettier" },
     typescriptreact = { "prettier" },
+    java = { "google_java_format" },
     css = { "prettier" },
     html = { "prettier" },
     json = { "prettier" },
