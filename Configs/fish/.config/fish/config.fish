@@ -34,9 +34,15 @@ for brew_prefix in /home/linuxbrew/.linuxbrew /opt/homebrew /usr/local
     end
 end
 
+# Interactive shells activate mise via brew's vendor_conf.d script;
+# non-interactive shells get shims.
+if type -q mise; and not status is-interactive
+    mise activate fish --shims | source
+end
+
 if status is-interactive
   # Tab accepts the autosuggestion when available
-  # Otherwise falls back to fish's default completion pager. Token-wise accept stays on Alt+Right.
+  # Token-wise accept stays on Alt+Right.
   # Shift-Tab invokes searchable pager on completion options.
   bind \t 'commandline -f accept-autosuggestion or complete'
 

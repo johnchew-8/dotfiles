@@ -1,0 +1,9 @@
+[tools]
+java = "temurin-25"
+maven = "3.9"
+google-java-format = "latest"
+jbang = "latest"
+
+[settings]
+# Tells mise to use and read tool version files in project for that language.
+idiomatic_version_file_enable_tools = ["java"]
