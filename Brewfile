@@ -25,6 +25,7 @@ brew "rust"
 brew "uv"
 brew "pnpm"
 brew "pixi"
+brew "mise"
 
 # Casks
 cask "font-caskaydia-cove-nerd-font"
