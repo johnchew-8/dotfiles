@@ -53,7 +53,7 @@ Rules that keep both profiles conflict-free:
 
 ## Adding a new dotfile
 
-Layout: `Configs/<group>/.config/<app>/` for XDG apps, `Configs/<group>/` for home-directory files (`.bashrc`, `.profile`).
+Layout: `Configs/<group>/.config/<app>/` for XDG apps, `Configs/<group>/` for home-directory files (`.bashrc`, `.profile`, `.zshrc`).
 
 1. Place file in the matching group using `mv`
 2. Run `make deploy` to symlink

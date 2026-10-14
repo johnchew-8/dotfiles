@@ -107,6 +107,8 @@ jobs:
 
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master
+        with:
+          ignore_paths: Configs/zsh
         env:
           SHELLCHECK_OPTS: -e SC1090 -e SC1091
 
@@ -122,6 +124,23 @@ jobs:
 
       - name: Syntax check
         uses: fish-actions/syntax-check@v1
+
+  lint-zsh:
+    name: Lint zsh configs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Install zsh
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y zsh
+
+      - name: Syntax check
+        run: |
+          set -euo pipefail
+          zsh -n Configs/zsh/.zshenv Configs/zsh/.zprofile Configs/zsh/.zshrc
 
   security-scan:
     name: Security Scan
