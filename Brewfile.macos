@@ -1,5 +1,6 @@
 # macOS-only casks (personal scope)
 # On Linux, install these apps via the distro package manager
+cask "handy"
 cask "ghostty"
 cask "obsidian"
 cask "gimp"
