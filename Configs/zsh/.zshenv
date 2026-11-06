@@ -26,6 +26,8 @@ _dotfiles_path() {
   )
   path=($^user_dirs(N-/) $path)
   [[ -n ${HOMEBREW_PREFIX-} ]] && path=($HOMEBREW_PREFIX/bin $HOMEBREW_PREFIX/sbin $path)
+  # Wrappers in ~/.local/bin must win over the Homebrew binaries they wrap.
+  path=($HOME/.local/bin $path)
   # Non-interactive shells get mise shims; interactive shells use mise activate in .zshrc.
   if [[ ! -o interactive ]] && (( $+commands[mise] )); then
     path=($HOME/.local/share/mise/shims $path)
