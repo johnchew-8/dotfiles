@@ -136,6 +136,9 @@
     "[lua]": {
         "editor.defaultFormatter": "sumneko.lua"
     },
+    "[xml]": {
+        "editor.defaultFormatter": "redhat.vscode-xml"
+    },
     "[java]": {
         "editor.defaultFormatter": "redhat.java",
         "editor.codeActionsOnSave": {
