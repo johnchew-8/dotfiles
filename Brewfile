@@ -29,3 +29,33 @@ brew "mise"
 
 # Casks
 cask "font-caskaydia-cove-nerd-font"
+
+# VS Code extensions (needs `code` on PATH, see README)
+# Existing ones are reinstalled at the latest version, keeping their settings; VS Code auto-update still works.
+# Extensions installed from inside VS Code are not added here: add them manually.
+vscode "aaron-bond.better-comments"
+vscode "anthropic.claude-code"
+vscode "charliermarsh.ruff"
+vscode "cweijan.vscode-office"
+vscode "eamodio.gitlens"
+vscode "esbenp.prettier-vscode"
+vscode "llvm-vs-code-extensions.lldb-dap"
+vscode "ms-python.debugpy"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
+vscode "ms-toolsai.jupyter"
+vscode "ms-toolsai.jupyter-keymap"
+vscode "ms-toolsai.jupyter-renderers"
+vscode "ms-toolsai.vscode-jupyter-cell-tags"
+vscode "ms-toolsai.vscode-jupyter-slideshow"
+vscode "redhat.java"
+vscode "redhat.vscode-xml"
+vscode "redhat.vscode-yaml"
+vscode "samuelcolvin.jinjahtml"
+vscode "streetsidesoftware.code-spell-checker"
+vscode "sumneko.lua"
+vscode "tamasfe.even-better-toml"
+vscode "vscjava.vscode-java-debug"
+vscode "vscode-icons-team.vscode-icons"
+vscode "yoavbls.pretty-ts-errors"

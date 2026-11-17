@@ -13,6 +13,9 @@ CLI prerequisites are managed with [Homebrew](https://brew.sh) - the committed B
 make deps
 ```
 
+>[!WARNING]
+> For Linux, make deps will fail if VS Code is not installed first to then be able to install the extensions.
+
 `make deps` locates `brew` across the standard prefixes (`/opt/homebrew`, `/usr/local`, `/home/linuxbrew/.linuxbrew`) and runs `brew bundle install`. It is idempotent - safe to re-run on existing machines, anything already installed is skipped. Brewfiles list the minimum set - nothing is uninstalled.
 
 > Linux: Homebrew's installer requires a `sudo` password with `build-essential`, `curl` and `git` preinstalled. Not supported on Alpine/musl.
