@@ -1,0 +1,178 @@
+{
+  // =====================================================================
+  // CORE
+  // =====================================================================
+  // Privacy & Security
+  "telemetry.telemetryLevel": "off",
+  "security.workspace.trust.untrustedFiles": "open",
+  // File Handling
+  "files.autoSave": "afterDelay",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  // Formatting (global; per-language formatters are under LANGUAGES)
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  // Editor Readability
+  "editor.stickyScroll.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.linkedEditing": true,
+  "editor.renderWhitespace": "boundary",
+  // Workbench & Tabs
+  "workbench.colorTheme": "Visual Studio Dark",
+  "workbench.editor.enablePreview": true,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.tree.enableStickyScroll": true,
+  "workbench.editorAssociations": {
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "*.md": "vscode.markdown.editor"
+  },
+  // Explorer
+  "explorer.confirmDragAndDrop": false,
+  "explorer.autoReveal": true,
+  // Git
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  // Diff Editor
+  "diffEditor.renderSideBySide": true,
+  "diffEditor.useInlineViewWhenSpaceIsLimited": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  // Terminal
+  "terminal.integrated.initialHint": false,
+  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.profiles.osx": {
+    "bash": {
+      "path": "bash",
+      "args": ["-l"],
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "zsh",
+      "args": ["-l"]
+    },
+    "fish": {
+      "path": "/opt/homebrew/bin/fish",
+      "args": ["-l"]
+    },
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
+    },
+    "pwsh": {
+      "path": "pwsh",
+      "icon": "terminal-powershell"
+    }
+  },
+  "terminal.integrated.defaultProfile.osx": "fish",
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "bash",
+      "args": ["-l"],
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "zsh",
+      "args": ["-l"]
+    },
+    "fish": {
+      "path": "fish",
+      "args": ["-l"]
+    }, // todo: the linuxbrew prefix varies, verify on linux system
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
+    }
+  },
+  "terminal.integrated.defaultProfile.linux": "fish",
+  // Remote
+  "remote.autoForwardPortsSource": "hybrid",
+  // Notebooks
+  "notebook.lineNumbers": "on",
+  "notebook.formatOnSave.enabled": true,
+  "notebook.codeActionsOnSave": {
+    "notebook.source.fixAll.ruff": "explicit",
+    "notebook.source.organizeImports.ruff": "explicit"
+  },
+  // Chat / AI
+  "chat.titleBar.openInAgentsWindow.enabled": false,
+  // =====================================================================
+  // LANGUAGES (formatter per file type)
+  // =====================================================================
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
+    }
+  },
+  "[javascript][typescript][javascriptreact][typescriptreact][css][scss][html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json][jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+  "[lua]": {
+    "editor.defaultFormatter": "sumneko.lua"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  // These formatters cannot format only modified lines; with
+  // "modificationsIfAvailable" a git-tracked file would not be formatted at all.
+  "[markdown][css][scss][html][yaml][toml]": {
+    "editor.formatOnSaveMode": "file"
+  },
+  // =====================================================================
+  // EXTENSIONS
+  // =====================================================================
+  // Java (redhat.java)
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.cleanup.actions": [
+    "addOverride",
+    "addDeprecated",
+    "redundantModifiers",
+    "lambdaExpression",
+    "lambdaExpressionFromAnonymousClass",
+    "instanceofPatternMatch",
+    "stringConcatToTextBlock",
+    "redundantSuperCall"
+  ],
+  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+  "java.format.settings.profile": "GoogleStyle",
+  "java.configuration.maven.lifecycleMappings": "~/.m2/lifecycle-mapping-metadata.xml", // jdt.ls expands a leading ~/
+  "java.configuration.maven.notCoveredPluginExecutionSeverity": "ignore",
+  // Yaml (redhat.yaml)
+  "yaml.schemas": {
+    "https://taskfile.dev/schema.json": ["**/Taskfile.yml", "**/taskfile.yml"]
+  },
+  // Lua (sumneko.lua)
+  "Lua.diagnostics.globals": ["vim"],
+  "Lua.workspace.checkThirdParty": false,
+  // GitLens
+  "gitlens.graph.details.location": "auto",
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-5.6-luna",
+  // Code Spell Checker
+  "cSpell.diagnosticLevel": "Hint",
+  // vscode-icons
+  "workbench.iconTheme": "vscode-icons",
+  "vsicons.dontShowNewVersionMessage": true,
+  // vscode-office
+  "vscode-office.enableTelemetry": false
+}
