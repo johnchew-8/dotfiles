@@ -1,4 +1,5 @@
 function rgs --description 'Live ripgrep search; print the directory of each picked match'
+    argparse i/insert -- $argv; or return
     set -l q (string join ' ' -- $argv)
 
     # --hidden includes dotfiles; the glob excludes .git; .gitignore is still honoured
@@ -25,10 +26,24 @@ function rgs --description 'Live ripgrep search; print the directory of each pic
             --preview-window '~4,+{2}+4/3,<80(up)' \
             --query "$q"
     )
-    or return
+
+    set -l fzf_status $status
+    if test $fzf_status -ne 0
+        set -q _flag_insert; and commandline --function repaint
+        return $fzf_status
+    end
 
     # Each line is file:line:col:text; keep the file's directory, one per unique dir
-    for line in $picked
-        path dirname -- (string split --max 1 -- : $line)[1]
-    end | sort -u
+    set -l dirs (
+        for line in $picked
+            path dirname -- (string split --max 1 -- : $line)[1]
+        end | sort -u
+    )
+
+    if set -q _flag_insert
+        commandline --insert -- (string escape -- $dirs | string join " ")
+        commandline --function repaint
+    else
+        printf '%s\n' $dirs
+    end
 end
