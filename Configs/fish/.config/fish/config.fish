@@ -60,7 +60,7 @@ if status is-interactive
     fzf_configure_bindings --directory=\ct --git_log=\cl --processes=\e\cp
   end
 
-  bind \cg 'commandline -rt -- (rgs | string escape | string join " "); commandline -f repaint'
+  bind \cg 'commandline -i -- (rgs | string escape | string join " "); commandline -f repaint'
 
   # Update zellij tab name with current process name or pwd
   if type -q zellij

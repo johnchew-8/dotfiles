@@ -9,13 +9,11 @@ function rgs --description 'Live ripgrep search; print the directory of each pic
     set -l reload "reload:[ -n {q} ] && $rg_cmd -- {q} || true"
     set -l opener 'if [ "$FZF_SELECT_COUNT" -eq 0 ]; then nvim {1} +{2}; else nvim +cw -q {+f}; fi'
 
-    set -l header 'enter: dir · ctrl-o: nvim · ctrl-f: filter · ctrl-r: rg · alt-a/d: (de)select all · ctrl-/: preview'
-
     set -l picked (
         fzf --with-shell 'sh -c' \
             --disabled --ansi --multi \
             --prompt 'rgs> ' \
-            --header $header \
+            --header 'enter: dir | ctrl-o: nvim | ctrl-f: filter | ctrl-r: rg | alt-a/d: (de)select all | ctrl-/: preview' \
             --bind "start:$reload" \
             --bind "change:$reload" \
             --bind "ctrl-o:execute:$opener" \
