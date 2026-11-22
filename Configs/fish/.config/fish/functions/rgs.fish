@@ -2,7 +2,7 @@ function rgs --description 'Live ripgrep search; print the directory of each pic
     set -l q (string join ' ' -- $argv)
 
     # --hidden includes dotfiles; the glob excludes .git; .gitignore is still honoured
-    set -l rg_cmd "rg --column --line-number --no-heading --color=always --smart-case --hidden --glob '!**/.git/*'"
+    set -l rg_cmd "rg --column --line-number --no-heading --color=always --smart-case --hidden --glob '!.git/'"
 
     # Commands below are POSIX sh (see --with-shell), not fish.
     # fzf kills the previous reload when a new one starts, so no debounce sleep is needed.

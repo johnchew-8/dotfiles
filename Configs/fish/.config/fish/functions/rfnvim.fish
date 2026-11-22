@@ -1,7 +1,7 @@
 function rfnvim --description 'Live ripgrep search; open matches in nvim'
     set -l q (string join ' ' -- $argv)
     # Runs under `sh -c` (see --with-shell), POSIX syntax only in these strings.
-    set -l rg_cmd "rg --column --color=always --smart-case --hidden --glob '!**/.git/*'"
+    set -l rg_cmd "rg --column --color=always --smart-case --hidden --glob '!.git/'"
     set -l reload "reload:[ -n {q} ] && $rg_cmd -- {q} || true"
     set -l opener 'if [ "$FZF_SELECT_COUNT" -eq 0 ]; then nvim +"call cursor({2},{3})" -- {1}; else nvim +cw -q {+f}; fi'
 
