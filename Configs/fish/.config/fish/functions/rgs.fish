@@ -13,7 +13,7 @@ function rgs --description 'Live ripgrep search; print the directory of each pic
         fzf --with-shell 'sh -c' \
             --disabled --ansi --multi \
             --prompt 'rgs> ' \
-            --header 'enter: dir | ctrl-o: nvim | ctrl-f: filter | ctrl-r: rg | alt-a/d: (de)select all | ctrl-/: preview' \
+            --header 'enter: dir | ctrl-o: nvim | ctrl-f: filter | ctrl-r: rg | ctrl-/: preview' \
             --bind "start:$reload" \
             --bind "change:$reload" \
             --bind "ctrl-o:execute:$opener" \
