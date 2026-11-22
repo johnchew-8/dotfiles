@@ -23,6 +23,7 @@ Configs/fish/.config/fish/completions/*
 !Configs/fish/.config/fish/functions/rfnvim.fish
 !Configs/fish/.config/fish/functions/cat.fish
 !Configs/fish/.config/fish/functions/jqfz.fish
+!Configs/fish/.config/fish/functions/rgs.fish
 
 # Zellij
 Configs/zellij/.config/zellij/plugins/*
