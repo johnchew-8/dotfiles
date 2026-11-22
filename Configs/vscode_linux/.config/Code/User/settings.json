@@ -2,24 +2,24 @@
     // =====================================================================
     // CORE
     // =====================================================================
-    // --- Privacy & Security ---
+    // Privacy & Security
     "telemetry.telemetryLevel": "off",
     "security.workspace.trust.untrustedFiles": "open",
-    // --- File Handling ---
+    // File Handling
     "files.autoSave": "afterDelay",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
-    // --- Formatting (global; per-language formatters are under LANGUAGES) ---
+    // Formatting (global; per-language formatters are under LANGUAGES)
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
     "editor.formatOnSaveMode": "modificationsIfAvailable",
-    // --- Editor Readability ---
+    // Editor Readability
     "editor.stickyScroll.enabled": true,
     "editor.guides.bracketPairs": "active",
     "editor.linkedEditing": true,
     "editor.renderWhitespace": "boundary",
-    // --- Workbench & Tabs ---
+    // Workbench & Tabs
     "workbench.colorTheme": "Visual Studio Dark",
     "workbench.editor.enablePreview": true,
     "workbench.editor.tabSizing": "shrink",
@@ -28,17 +28,17 @@
         "*.copilotmd": "vscode.markdown.preview.editor",
         "*.md": "vscode.markdown.editor"
     },
-    // --- Explorer ---
+    // Explorer
     "explorer.confirmDragAndDrop": false,
     "explorer.autoReveal": true,
-    // --- Git ---
+    // Git
     "git.autofetch": true,
     "git.enableSmartCommit": true,
-    // --- Diff Editor ---
+    // Diff Editor
     "diffEditor.renderSideBySide": true,
     "diffEditor.useInlineViewWhenSpaceIsLimited": false,
     "diffEditor.ignoreTrimWhitespace": false,
-    // --- Terminal ---
+    // Terminal
     "terminal.integrated.initialHint": false,
     "terminal.integrated.scrollback": 10000,
     "terminal.integrated.profiles.osx": {
@@ -97,16 +97,16 @@
         }
     },
     "terminal.integrated.defaultProfile.linux": "fish",
-    // --- Remote ---
+    // Remote
     "remote.autoForwardPortsSource": "hybrid",
-    // --- Notebooks ---
+    // Notebooks
     "notebook.lineNumbers": "on",
     "notebook.formatOnSave.enabled": true,
     "notebook.codeActionsOnSave": {
         "notebook.source.fixAll.ruff": "explicit",
         "notebook.source.organizeImports.ruff": "explicit"
     },
-    // --- Chat / AI ---
+    // Chat / AI
     "chat.titleBar.openInAgentsWindow.enabled": false,
     // =====================================================================
     // LANGUAGES (formatter per file type)
@@ -153,7 +153,7 @@
     // =====================================================================
     // EXTENSIONS
     // =====================================================================
-    // --- Java (redhat.java) ---
+    // Java (redhat.java)
     "java.configuration.updateBuildConfiguration": "automatic",
     "java.cleanup.actions": [
         "addOverride",
@@ -169,20 +169,27 @@
     "java.format.settings.profile": "GoogleStyle",
     "java.configuration.maven.lifecycleMappings": "~/.m2/lifecycle-mapping-metadata.xml", // jdt.ls expands a leading ~/
     "java.configuration.maven.notCoveredPluginExecutionSeverity": "ignore",
-    // --- Lua (sumneko.lua) ---
+    // Yaml (redhat.yaml)
+    "yaml.schemas": {
+        "https://taskfile.dev/schema.json": [
+            "**/Taskfile.yml",
+            "**/taskfile.yml",
+        ]
+    },
+    // Lua (sumneko.lua)
     "Lua.diagnostics.globals": [
         "vim"
     ],
     "Lua.workspace.checkThirdParty": false,
-    // --- GitLens ---
+    // GitLens
     "gitlens.graph.details.location": "auto",
     "gitlens.ai.model": "vscode",
     "gitlens.ai.vscode.model": "copilot:gpt-5.6-luna",
-    // --- Code Spell Checker ---
+    // Code Spell Checker
     "cSpell.diagnosticLevel": "Hint",
-    // --- vscode-icons ---
+    // vscode-icons
     "workbench.iconTheme": "vscode-icons",
     "vsicons.dontShowNewVersionMessage": true,
-    // --- vscode-office ---
+    // vscode-office
     "vscode-office.enableTelemetry": false
 }
