@@ -21,7 +21,7 @@ fish_add_path --global --move \
   "$HOME/go/bin" \
   "$PNPM_HOME/bin"
 
-# Homebrew shell environment sourced after local toolchain paths 
+# Homebrew shell environment sourced after local toolchain paths
 # so brew-managed binaries win during consolidation.
 for brew_prefix in /home/linuxbrew/.linuxbrew /opt/homebrew /usr/local
     if test -x $brew_prefix/bin/brew
@@ -47,18 +47,21 @@ if status is-interactive
 
   # Alt + Backspace: deletes word-by-word
   bind \e\x7f backward-kill-word
-  
-  # fzf.fish bindings 
+
+  # fzf.fish bindings
   #   directory:  ctrl-t      (override, default ctrl-alt-f)
   #   git log:    ctrl-l      (override, default ctrl-alt-l)
-  #   git status: ctrl-alt-s  
-  #   history:    ctrl-r      
-  #   processes:  ctrl-alt-p  
-  #   variables:  ctrl-v      
+  #   git status: ctrl-alt-s
+  #   history:    ctrl-r
+  #   processes:  ctrl-alt-p
+  #   variables:  ctrl-v
+  #   rgs (live ripgrep): ctrl-g
   if functions -q fzf_configure_bindings
     fzf_configure_bindings --directory=\ct --git_log=\cl --processes=\e\cp
   end
-  
+
+  bind \cg 'rgs --insert'
+
   # Update zellij tab name with current process name or pwd
   if type -q zellij
     function zellij_tab_name_update_pre --on-event fish_preexec
@@ -78,7 +81,7 @@ if status is-interactive
       end
     end
   end
-  
+
 end
 
 # Bind bat preview to the CTRL+T file finder in fzf

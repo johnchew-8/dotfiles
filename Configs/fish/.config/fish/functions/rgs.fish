@@ -1,0 +1,49 @@
+function rgs --description 'Live ripgrep search; print the directory of each picked match'
+    argparse i/insert -- $argv; or return
+    set -l q (string join ' ' -- $argv)
+
+    # --hidden includes dotfiles; the glob excludes .git; .gitignore is still honoured
+    set -l rg_cmd "rg --column --line-number --no-heading --color=always --smart-case --hidden --glob '!.git/'"
+
+    # Commands below are POSIX sh (see --with-shell), not fish.
+    # fzf kills the previous reload when a new one starts, so no debounce sleep is needed.
+    set -l reload "reload:[ -n {q} ] && $rg_cmd -- {q} || true"
+    set -l opener 'if [ "$FZF_SELECT_COUNT" -eq 0 ]; then nvim {1} +{2}; else nvim +cw -q {+f}; fi'
+
+    set -l picked (
+        fzf --with-shell 'sh -c' \
+            --disabled --ansi --multi \
+            --prompt 'rgs> ' \
+            --header 'enter: dir | ctrl-o: nvim | ctrl-f: filter | ctrl-r: rg | ctrl-/: preview' \
+            --bind "start:$reload" \
+            --bind "change:$reload" \
+            --bind "ctrl-o:execute:$opener" \
+            --bind 'alt-a:select-all,alt-d:deselect-all,ctrl-/:toggle-preview' \
+            --bind 'ctrl-f:unbind(change)+change-prompt(fzf> )+enable-search+clear-query' \
+            --bind 'ctrl-r:rebind(change)+change-prompt(rgs> )+disable-search+clear-query' \
+            --delimiter : \
+            --preview 'bat --style=full --color=always --highlight-line {2} {1}' \
+            --preview-window '~4,+{2}+4/3,<80(up)' \
+            --query "$q"
+    )
+
+    set -l fzf_status $status
+    if test $fzf_status -ne 0
+        set -q _flag_insert; and commandline --function repaint
+        return $fzf_status
+    end
+
+    # Each line is file:line:col:text; keep the file's directory, one per unique dir
+    set -l dirs (
+        for line in $picked
+            path dirname -- (string split --max 1 -- : $line)[1]
+        end | sort -u
+    )
+
+    if set -q _flag_insert
+        commandline --insert -- (string escape -- $dirs | string join " ")
+        commandline --function repaint
+    else
+        printf '%s\n' $dirs
+    end
+end

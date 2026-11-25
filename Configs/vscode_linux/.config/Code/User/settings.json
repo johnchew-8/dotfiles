@@ -37,23 +37,29 @@
   // Diff Editor
   "diffEditor.renderSideBySide": true,
   "diffEditor.useInlineViewWhenSpaceIsLimited": false,
-  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.ignoreTrimWhitespace": true,
   // Terminal
   "terminal.integrated.initialHint": false,
   "terminal.integrated.scrollback": 10000,
   "terminal.integrated.profiles.osx": {
     "bash": {
       "path": "bash",
-      "args": ["-l"],
+      "args": [
+        "-l"
+      ],
       "icon": "terminal-bash"
     },
     "zsh": {
       "path": "zsh",
-      "args": ["-l"]
+      "args": [
+        "-l"
+      ]
     },
     "fish": {
       "path": "/opt/homebrew/bin/fish",
-      "args": ["-l"]
+      "args": [
+        "-l"
+      ]
     },
     "tmux": {
       "path": "tmux",
@@ -68,16 +74,22 @@
   "terminal.integrated.profiles.linux": {
     "bash": {
       "path": "bash",
-      "args": ["-l"],
+      "args": [
+        "-l"
+      ],
       "icon": "terminal-bash"
     },
     "zsh": {
       "path": "zsh",
-      "args": ["-l"]
+      "args": [
+        "-l"
+      ]
     },
     "fish": {
       "path": "fish",
-      "args": ["-l"]
+      "args": [
+        "-l"
+      ]
     }, // todo: the linuxbrew prefix varies, verify on linux system
     "tmux": {
       "path": "tmux",
@@ -159,10 +171,15 @@
   "java.configuration.maven.notCoveredPluginExecutionSeverity": "ignore",
   // Yaml (redhat.yaml)
   "yaml.schemas": {
-    "https://taskfile.dev/schema.json": ["**/Taskfile.yml", "**/taskfile.yml"]
+    "https://taskfile.dev/schema.json": [
+      "**/Taskfile.yml",
+      "**/taskfile.yml"
+    ]
   },
   // Lua (sumneko.lua)
-  "Lua.diagnostics.globals": ["vim"],
+  "Lua.diagnostics.globals": [
+    "vim"
+  ],
   "Lua.workspace.checkThirdParty": false,
   // GitLens
   "gitlens.graph.details.location": "auto",
